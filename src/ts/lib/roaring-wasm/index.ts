@@ -69,16 +69,20 @@ function loadRoaringWasm(): RoaringWasm {
 
   const roaringWasmModule = require('./roaring-wasm-module')
 
+  /*
   const isNode =
     typeof __dirname === 'string' &&
     typeof process === 'object' &&
     typeof process.versions === 'object' &&
     process.versions.node !== undefined
+  */
 
   const m: any = new RoaringWasmModule()
+  /*
   if (isNode) {
     m.ENVIRONMENT = 'NODE'
   }
+  */
 
   if (typeof __dirname === 'string' && __dirname) {
     m.locateFile = function locateFile(file: any) {

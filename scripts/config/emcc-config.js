@@ -62,6 +62,7 @@ function buildEmccArgs() {
   args.push('-s', 'BINARYEN_ASYNC_COMPILATION=0')
   args.push('-s', "BINARYEN_METHOD='native-wasm'")
   args.push('-s', `EXPORTED_FUNCTIONS=${JSON.stringify(exportedFunctions)}`)
+  args.push('-s', `EXPORTED_RUNTIME_METHODS=["wasmMemory"]`)
   args.push('-s', 'EXPORT_NAME="roaring_wasm_module"')
   args.push('-s', 'INVOKE_RUN=0')
   args.push('-s', 'MODULARIZE=1')
@@ -76,7 +77,7 @@ function buildEmccArgs() {
   args.push('-s', 'EVAL_CTORS=1')
   args.push('-s', 'AGGRESSIVE_VARIABLE_ELIMINATION=1')
 
-  args.push('-s', 'ASSERTIONS=0')
+  args.push('-s', 'ASSERTIONS=1')
   args.push('-s', 'SAFE_HEAP=0')
   args.push('-s', 'SAFE_HEAP_LOG=0')
   args.push('-s', 'WARN_UNALIGNED=0')
