@@ -53,7 +53,7 @@ type RoaringWasm = {
   _roaring_bitmap_native_deserialize_js(bufPtr: number, length: number): number
 
   _roaring_bitmap_frozen_size_in_bytes(roaring: number) : number
-  _roaring_bitmap_frozen_view(butPtr: number) : number
+  _roaring_bitmap_frozen_view(butPtr: number, length: number) : number
   _roaring_bitmap_frozen_serialize(roaring: number, bufPtr: number) : number
 }
 

@@ -746,14 +746,14 @@ class RoaringBitmap32 {
       }
       const roaringArray = new RoaringUint8Array(buffer)
       try {
-        this.deserialize(roaringArray)
+        this.frozenDeserialize(roaringArray)
       } finally {
         roaringArray.dispose()
       }
       return
     }
 
-    const ptr = _roaring_bitmap_frozen_view(buffer.byteOffset)
+    const ptr = _roaring_bitmap_frozen_view(buffer.byteOffset, buffer.length)
 
     if (ptr === null) {
       throw new Error(`RoaringBitmap32 deserialization failed`)
